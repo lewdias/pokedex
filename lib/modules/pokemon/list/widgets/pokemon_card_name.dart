@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pokedex_4fun/modules/pokemon/list/models/pokemon_type.dart';
 import 'package:pokedex_4fun/utils/hexcolor.dart';
 import 'package:pokedex_4fun/utils/outlinedText.dart';
 
 class PokemonCardName extends StatelessWidget {
   final String pokemonName;
   final String pokemonId;
-  final Map<String, String?>? pokemonTypeColors;
+  final PokemonTypeColors primaryPokemonTypeColors;
 
   const PokemonCardName({
     Key? key,
     required this.pokemonName,
     required this.pokemonId,
-    required this.pokemonTypeColors,
+    required this.primaryPokemonTypeColors,
   }) : super(key: key);
 
   @override
@@ -39,7 +40,8 @@ class PokemonCardName extends StatelessWidget {
               fontSize: 10,
               fontWeight: FontWeight.w800,
               shadows: outlinedText(
-                strokeColor: getColorFromHex(pokemonTypeColors?['color']),
+                strokeColor:
+                    getColorFromHex(primaryPokemonTypeColors.defaultColor),
               ),
             ),
           ),

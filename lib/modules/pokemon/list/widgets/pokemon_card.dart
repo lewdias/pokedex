@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_4fun/config/constants/types_colors.dart';
+import 'package:collection/collection.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/models/pokemon_list.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/models/pokemon_type.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_avatar.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_name.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_type.dart';
-import 'package:collection/collection.dart';
 import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 Widget buildPokemonCard(BuildContext context, List<PokemonList>? pokemons) {
@@ -33,13 +32,13 @@ class PokemonCard extends StatelessWidget {
   const PokemonCard({Key? key, required this.pokemon}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Map<String, String?>? pokemonTypeColors =
-        types?[pokemon.types.first.type.name];
+    PokemonTypeColors primaryPokemonTypeColors =
+        pokemon.types.first.type.colors;
 
     return Container(
       margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
       child: Card(
-        color: getColorFromHex('${pokemonTypeColors?['lightColor']}'),
+        color: getColorFromHex('${primaryPokemonTypeColors.lightColor}'),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
@@ -50,7 +49,8 @@ class PokemonCard extends StatelessWidget {
           onTap: () {
             print('${pokemon.types}');
           },
-          splashColor: getColorFromHex('${pokemonTypeColors?['color']}'),
+          splashColor:
+              getColorFromHex('${primaryPokemonTypeColors.defaultColor}'),
           child: Stack(
             alignment: Alignment.center,
             clipBehavior: Clip.none,
@@ -63,13 +63,13 @@ class PokemonCard extends StatelessWidget {
                     PokemonCardName(
                         pokemonName: pokemon.name,
                         pokemonId: pokemon.id,
-                        pokemonTypeColors: pokemonTypeColors),
+                        primaryPokemonTypeColors: primaryPokemonTypeColors),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: pokemon.types
                           .mapIndexed(
-                            (int index, PokemonType item) => PokemonCardType(
-                              type: types?[item.type.name],
+                            (int index, PokemonType type) => PokemonCardType(
+                              pokemonType: type,
                               index: index,
                             ),
                           )

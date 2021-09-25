@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pokedex_4fun/modules/pokemon/list/models/pokemon_type.dart';
 import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonCardType extends StatelessWidget {
-  final Map<String, String?>? type;
+  final PokemonType pokemonType;
   final int index;
 
-  const PokemonCardType({Key? key, required this.type, required this.index})
+  const PokemonCardType(
+      {Key? key, required this.pokemonType, required this.index})
       : super(key: key);
 
   @override
@@ -15,7 +17,7 @@ class PokemonCardType extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(index > 0 ? 5 : 0, 10, 0, 0),
       padding: EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: getColorFromHex('${type?['color']}'),
+        color: getColorFromHex('${pokemonType.type.colors.defaultColor}'),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: Colors.white,
@@ -23,7 +25,7 @@ class PokemonCardType extends StatelessWidget {
         ),
       ),
       child: Text(
-        '${type?['name']}',
+        '${pokemonType.type.name}'.toUpperCase(),
         style: GoogleFonts.pressStart2p(
           fontSize: 8,
           color: Colors.white,
