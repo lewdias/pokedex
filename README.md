@@ -1,4 +1,4 @@
-# pokedex_4fun
+# Flutter Pokédex
 
 Pokédex 4fun
 
