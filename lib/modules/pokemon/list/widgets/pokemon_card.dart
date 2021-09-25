@@ -9,10 +9,11 @@ import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 Widget buildPokemonCard(BuildContext context, List<PokemonList>? pokemons) {
   if (pokemons != null) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    int numberOfCards = 2;
-    int cardHeight = 230;
-    double cardWidth = (screenWidth.toDouble() / numberOfCards.toDouble());
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final int numberOfCards = 2;
+    final int cardHeight = 230;
+    final double cardWidth =
+        (screenWidth.toDouble() / numberOfCards.toDouble());
 
     return GridView.count(
       crossAxisCount: numberOfCards,
@@ -32,7 +33,7 @@ class PokemonCard extends StatelessWidget {
   const PokemonCard({Key? key, required this.pokemon}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    PokemonTypeColors primaryPokemonTypeColors =
+    final PokemonTypeColors primaryPokemonTypeColors =
         pokemon.types.first.type.colors;
 
     return Container(
