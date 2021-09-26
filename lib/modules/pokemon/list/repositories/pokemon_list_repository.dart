@@ -65,23 +65,15 @@ class PokemonListRepository {
 
       if (statusCode == 200) {
         final types = pokemonInfo['types'];
+        final sprites = pokemonInfo['sprites'];
         final id = pokemonInfo['id'];
-
-        String officialArtwork = pokemonInfo['sprites']['other']
-            ['official-artwork']['front_default'];
 
         if (cachedPokemonInfo == false) {
           Map<String, dynamic> responseMap = {
             'data': {
-              'id': pokemonInfo['id'],
-              'types': pokemonInfo['types'],
-              'sprites': {
-                'other': {
-                  'official-artwork': {
-                    'front_default': officialArtwork,
-                  },
-                },
-              },
+              'id': id,
+              'types': types,
+              'sprites': sprites,
             },
             'statusCode': 200,
           };
@@ -91,11 +83,11 @@ class PokemonListRepository {
         }
 
         PokemonList pokemonList =
-            PokemonList.fromJson(item, officialArtwork, types, id);
+            PokemonList.fromJson(item, sprites, types, id);
 
         return pokemonList;
       } else {
-        return PokemonList.fromJson(item, '', [], 0);
+        return PokemonList.fromJson(item, {}, [], 0);
       }
     }).toList();
 

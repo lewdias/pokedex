@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class PokemonCardAvatar extends StatelessWidget {
-  final String officialArtwork;
+  final String? officialArtwork;
 
   const PokemonCardAvatar({Key? key, required this.officialArtwork})
       : super(key: key);
@@ -14,7 +14,7 @@ class PokemonCardAvatar extends StatelessWidget {
       width: 120,
       child: CircleAvatar(
         child: CachedNetworkImage(
-          imageUrl: officialArtwork,
+          imageUrl: officialArtwork ?? '',
           errorWidget: (context, url, error) => Icon(Icons.error),
         ),
         backgroundColor: Colors.transparent,

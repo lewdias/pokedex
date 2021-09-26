@@ -60,7 +60,9 @@ class PokemonCard extends StatelessWidget {
                 top: -50,
                 child: Column(
                   children: [
-                    PokemonCardAvatar(officialArtwork: pokemon.officialArtwork),
+                    PokemonCardAvatar(
+                        officialArtwork: pokemon
+                            .sprites.other?.officialArtwork.frontDefault),
                     PokemonCardName(
                         pokemonName: pokemon.name,
                         pokemonId: pokemon.id,
