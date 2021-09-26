@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_4fun/config/constants/api_constants.dart'
     as apiConstants;
-import 'package:pokedex_4fun/modules/pokemon/list/models/pokemon_list.dart';
+import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/repositories/pokemon_list_repository.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card.dart';
 import 'package:provider/provider.dart';
@@ -27,9 +27,11 @@ class _PokemonListPageState extends State<PokemonListPage> {
             future: pokemonListRepository.getPokemons(
                 apiConstants.POKEAPI_FIRST_GENERATION, 0),
             builder: (BuildContext context,
-                AsyncSnapshot<List<PokemonList>> snapshot) {
+                AsyncSnapshot<List<PokemonInfo>> snapshot) {
               if (snapshot.hasData) {
                 return buildPokemonCard(context, snapshot.data);
+              } else {
+                print(snapshot.error);
               }
               // By default, show a loading spinner.
               return const CircularProgressIndicator();

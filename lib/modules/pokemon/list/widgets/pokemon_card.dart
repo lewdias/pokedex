@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
-import 'package:pokedex_4fun/modules/pokemon/list/models/pokemon_list.dart';
-import 'package:pokedex_4fun/modules/pokemon/list/models/pokemon_type.dart';
+import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
+import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_avatar.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_name.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_type.dart';
 import 'package:pokedex_4fun/utils/hexcolor.dart';
 
-Widget buildPokemonCard(BuildContext context, List<PokemonList>? pokemons) {
+Widget buildPokemonCard(BuildContext context, List<PokemonInfo>? pokemons) {
   if (pokemons != null) {
     final double screenWidth = MediaQuery.of(context).size.width;
     final int numberOfCards = 2;
@@ -19,7 +19,7 @@ Widget buildPokemonCard(BuildContext context, List<PokemonList>? pokemons) {
       crossAxisCount: numberOfCards,
       childAspectRatio: (cardWidth / cardHeight),
       children: pokemons
-          .map((PokemonList pokemon) => PokemonCard(pokemon: pokemon))
+          .map((PokemonInfo pokemon) => PokemonCard(pokemon: pokemon))
           .toList(),
     );
   }
@@ -28,7 +28,7 @@ Widget buildPokemonCard(BuildContext context, List<PokemonList>? pokemons) {
 }
 
 class PokemonCard extends StatelessWidget {
-  final PokemonList pokemon;
+  final PokemonInfo pokemon;
 
   const PokemonCard({Key? key, required this.pokemon}) : super(key: key);
   @override

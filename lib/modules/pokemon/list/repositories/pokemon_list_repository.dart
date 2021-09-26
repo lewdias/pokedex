@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:pokedex_4fun/config/constants/cache_keys.dart';
-import 'package:pokedex_4fun/modules/pokemon/list/models/pokemon_list.dart';
+import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/config/constants/api_path.dart';
 import 'package:pokedex_4fun/utils/getFromCacheOrApi.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PokemonListRepository {
-  Future<List<PokemonList>> getPokemons(int limit, int offset) async {
+  Future<List<PokemonInfo>> getPokemons(int limit, int offset) async {
     try {
       final SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
@@ -38,7 +38,7 @@ class PokemonListRepository {
               CacheKeys.pokemonList(limit, offset), rawJson);
         }
 
-        List<PokemonList> pokemonList = await Future.wait(
+        List<PokemonInfo> pokemonList = await Future.wait(
             handlePokemonListResults(results, sharedPreferences));
 
         return pokemonList;
@@ -50,10 +50,10 @@ class PokemonListRepository {
     }
   }
 
-  List<Future<PokemonList>> handlePokemonListResults(
+  List<Future<PokemonInfo>> handlePokemonListResults(
       dynamic results, SharedPreferences sharedPreferences) {
-    List<Future<PokemonList>> pokemons =
-        results.map<Future<PokemonList>>((dynamic item) async {
+    List<Future<PokemonInfo>> pokemons =
+        results.map<Future<PokemonInfo>>((dynamic item) async {
       String pokemonUrl = item['url'];
 
       Map<dynamic, dynamic> responseMapped = await getFromCacheOrApi(pokemonUrl,
@@ -64,16 +64,13 @@ class PokemonListRepository {
       final cachedPokemonInfo = responseMapped['cachedResponse'];
 
       if (statusCode == 200) {
-        final types = pokemonInfo['types'];
-        final sprites = pokemonInfo['sprites'];
-        final id = pokemonInfo['id'];
-
         if (cachedPokemonInfo == false) {
           Map<String, dynamic> responseMap = {
             'data': {
-              'id': id,
-              'types': types,
-              'sprites': sprites,
+              'id': pokemonInfo['id'],
+              'types': pokemonInfo['types'],
+              'sprites': pokemonInfo['sprites'],
+              'name': pokemonInfo['name'],
             },
             'statusCode': 200,
           };
@@ -82,12 +79,11 @@ class PokemonListRepository {
               CacheKeys.pokemonInformation(item['name']), rawJson);
         }
 
-        PokemonList pokemonList =
-            PokemonList.fromJson(item, sprites, types, id);
+        PokemonInfo pokemonList = PokemonInfo.fromJson(pokemonInfo);
 
         return pokemonList;
       } else {
-        return PokemonList.fromJson(item, {}, [], 0);
+        return PokemonInfo.fromJson({});
       }
     }).toList();
 
