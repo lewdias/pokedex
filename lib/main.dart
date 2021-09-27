@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pokédex',
       initialRoute: '/pokemons',
+      theme: new ThemeData(scaffoldBackgroundColor: Colors.grey.shade100),
       routes: {
         '/home': (context) => Home(title: "Pokédex"),
         '/pokemons': (context) => MultiProvider(

@@ -4,6 +4,7 @@ import 'package:pokedex_4fun/config/constants/api_constants.dart'
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/repositories/pokemon_list_repository.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card.dart';
+import 'package:pokedex_4fun/pages/widgets/custom-appbar.dart';
 import 'package:provider/provider.dart';
 
 class PokemonListPage extends StatefulWidget {
@@ -19,7 +20,12 @@ class _PokemonListPageState extends State<PokemonListPage> {
     final pokemonListRepository = Provider.of<PokemonListRepository>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text("First Generation")),
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(
+        title: 'First Generation',
+        opacity: 0.8,
+        backgroundColor: Colors.grey.shade100,
+      ),
       body: Container(
         margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
         child: Center(
@@ -30,8 +36,6 @@ class _PokemonListPageState extends State<PokemonListPage> {
                 AsyncSnapshot<List<PokemonInfo>> snapshot) {
               if (snapshot.hasData) {
                 return buildPokemonCard(context, snapshot.data);
-              } else {
-                print(snapshot.error);
               }
               // By default, show a loading spinner.
               return const CircularProgressIndicator();
