@@ -23,8 +23,7 @@ class _PokemonListPageState extends State<PokemonListPage> {
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
         title: 'First Generation',
-        opacity: 0.8,
-        backgroundColor: Colors.grey.shade100,
+        isHomePage: true,
       ),
       body: Container(
         margin: EdgeInsets.fromLTRB(5, 0, 5, 0),

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final String? title;
   final double? height;
   final double? opacity;
   final Color? backgroundColor;
+  final bool? isHomePage;
 
   Size get preferredSize {
     return new Size.fromHeight(height ?? 50.0);
@@ -13,17 +14,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const CustomAppBar({
     Key? key,
-    required this.title,
+    this.title,
     this.height,
     this.opacity,
     this.backgroundColor,
+    this.isHomePage,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        title.toUpperCase(),
+        title?.toUpperCase() ?? '',
         style: GoogleFonts.pressStart2p(
           color: Colors.black,
           fontSize: 10,
@@ -32,13 +34,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       elevation: 0,
-      backgroundColor: backgroundColor?.withOpacity(opacity ?? 0.0) ?? null,
-      leading: Icon(
-        Icons.arrow_back_rounded,
-        color: Colors.black,
-        size: 24.0,
-        semanticLabel: 'Go back to previous page.',
-      ),
+      backgroundColor: backgroundColor?.withOpacity(opacity ?? 0.8) ??
+          Colors.grey.shade100.withOpacity(opacity ?? 0.8),
+      leading: isHomePage == null
+          ? IconButton(
+              onPressed: () {
+                Navigator.of(context).maybePop();
+              },
+              icon: const Icon(Icons.arrow_back),
+              color: Colors.black,
+              iconSize: 24.0,
+              tooltip: 'Go back to previous page.',
+            )
+          : null,
       actions: <Widget>[],
     );
   }

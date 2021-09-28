@@ -5,6 +5,7 @@ import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_avatar.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_name.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_type.dart';
+import 'package:pokedex_4fun/pages/pokemon/show.dart';
 import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 Widget buildPokemonCard(BuildContext context, List<PokemonInfo>? pokemons) {
@@ -48,7 +49,12 @@ class PokemonCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
           ),
           onTap: () {
-            print('${pokemon.types}');
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PokemonShowPage(pokemon: pokemon),
+              ),
+            );
           },
           splashColor:
               getColorFromHex('${primaryPokemonTypeColors.defaultColor}'),
