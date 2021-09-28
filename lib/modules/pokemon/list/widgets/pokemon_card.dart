@@ -53,8 +53,7 @@ class PokemonCard extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => PokemonShowPage(
-                    pokemon: pokemon,
-                    backgroundColor: primaryPokemonTypeColors.defaultColor),
+                    pokemon: pokemon, typeColors: primaryPokemonTypeColors),
               ),
             );
           },
@@ -69,7 +68,7 @@ class PokemonCard extends StatelessWidget {
                 child: Column(
                   children: [
                     PokemonCardAvatar(
-                        officialArtwork: pokemon
+                        sprite: pokemon
                             .sprites.other?.officialArtwork.frontDefault),
                     PokemonCardName(
                         pokemonName: pokemon.name,
