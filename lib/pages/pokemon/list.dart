@@ -4,7 +4,7 @@ import 'package:pokedex_4fun/config/constants/api_constants.dart'
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/repositories/pokemon_list_repository.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card.dart';
-import 'package:pokedex_4fun/pages/widgets/custom-appbar.dart';
+import 'package:pokedex_4fun/pages/widgets/custom_appbar.dart';
 import 'package:provider/provider.dart';
 
 class PokemonListPage extends StatefulWidget {
