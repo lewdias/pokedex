@@ -21,28 +21,29 @@ class PokemonCardName extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
           child: Text(
             'N°$pokemonId',
-            style: GoogleFonts.pressStart2p(
+            style: GoogleFonts.montserrat(
               color: Colors.white,
-              fontSize: 11,
-              fontWeight: FontWeight.w100,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ),
         Container(
-          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
           child: Text(
             pokemonName,
-            style: GoogleFonts.pressStart2p(
+            style: GoogleFonts.montserrat(
               color: Colors.white,
-              fontSize: 10,
+              fontSize: 16,
               fontWeight: FontWeight.w800,
               shadows: outlinedText(
                 strokeColor:
                     getColorFromHex(primaryPokemonTypeColors.defaultColor),
               ),
+              letterSpacing: 0.8,
             ),
           ),
         ),

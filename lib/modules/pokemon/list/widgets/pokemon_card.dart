@@ -52,7 +52,9 @@ class PokemonCard extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => PokemonShowPage(pokemon: pokemon),
+                builder: (context) => PokemonShowPage(
+                    pokemon: pokemon,
+                    backgroundColor: primaryPokemonTypeColors.defaultColor),
               ),
             );
           },

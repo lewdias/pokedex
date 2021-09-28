@@ -15,7 +15,9 @@ class PokemonCardType extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(index > 0 ? 5 : 0, 10, 0, 0),
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(4),
+      width: 75,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: getColorFromHex('${pokemonType.type.colors.defaultColor}'),
         borderRadius: BorderRadius.circular(10),
@@ -26,8 +28,8 @@ class PokemonCardType extends StatelessWidget {
       ),
       child: Text(
         '${pokemonType.type.name}'.toUpperCase(),
-        style: GoogleFonts.pressStart2p(
-          fontSize: 8,
+        style: GoogleFonts.montserrat(
+          fontSize: 12,
           color: Colors.white,
           fontWeight: FontWeight.bold,
         ),

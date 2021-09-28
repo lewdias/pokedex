@@ -6,6 +6,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double? height;
   final double? opacity;
   final Color? backgroundColor;
+  final Color? iconColor;
   final bool? isHomePage;
 
   Size get preferredSize {
@@ -18,6 +19,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.height,
     this.opacity,
     this.backgroundColor,
+    this.iconColor,
     this.isHomePage,
   }) : super(key: key);
 
@@ -26,9 +28,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title?.toUpperCase() ?? '',
-        style: GoogleFonts.pressStart2p(
+        style: GoogleFonts.montserrat(
           color: Colors.black,
-          fontSize: 10,
+          fontSize: 18,
           fontWeight: FontWeight.w800,
           letterSpacing: 1,
         ),
@@ -42,8 +44,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Navigator.of(context).maybePop();
               },
               icon: const Icon(Icons.arrow_back),
-              color: Colors.black,
+              color: iconColor ?? Colors.black,
               iconSize: 24.0,
+              highlightColor: Colors.white.withOpacity(0.2),
               tooltip: 'Go back to previous page.',
             )
           : null,
