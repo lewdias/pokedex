@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
-import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonCardType extends StatelessWidget {
   final PokemonType pokemonType;
@@ -25,8 +24,7 @@ class PokemonCardType extends StatelessWidget {
       width: 75,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color:
-            color ?? getColorFromHex('${pokemonType.type.colors.defaultColor}'),
+        color: color ?? pokemonType.type.colors.defaultColor,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: borderColor ?? Colors.transparent,

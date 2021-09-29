@@ -1,9 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex_4fun/config/constants/stats_colors.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_stats.dart';
-import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonStatsGraph extends StatefulWidget {
   final List<PokemonStats> stats;
@@ -24,9 +22,10 @@ class PokemonStatsGraphState extends State<PokemonStatsGraph> {
     super.initState();
     final statBars = widget.stats
         .mapIndexed((int index, PokemonStats item) => makeGroupData(
-            index,
-            item.baseStat.toDouble(),
-            getColorFromHex(statsColors[item.stat.name]!['defaultColor'])))
+              index,
+              item.baseStat.toDouble(),
+              item.stat.color,
+            ))
         .toList();
 
     showingBarGroups = statBars;

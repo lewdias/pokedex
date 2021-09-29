@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_type.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
-import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonHeader extends StatelessWidget {
   final PokemonInfo pokemon;
@@ -54,8 +53,7 @@ class PokemonHeader extends StatelessWidget {
                     (int index, PokemonType type) => PokemonCardType(
                       pokemonType: type,
                       index: index,
-                      color: getColorFromHex(
-                              '${pokemon.types[0].type.colors.defaultColor}')
+                      color: pokemon.types[0].type.colors.defaultColor
                           .withAlpha(255),
                     ),
                   )

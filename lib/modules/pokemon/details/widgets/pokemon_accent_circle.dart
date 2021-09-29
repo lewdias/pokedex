@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
-import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonAccentCircle extends StatelessWidget {
   final PokemonTypeColors typeColors;
@@ -15,9 +14,7 @@ class PokemonAccentCircle extends StatelessWidget {
       child: SizedBox(
         width: 170,
         height: 170,
-        child: CircleAvatar(
-          backgroundColor: getColorFromHex('${typeColors.lightColor}'),
-        ),
+        child: CircleAvatar(backgroundColor: typeColors.lightColor),
       ),
     );
   }

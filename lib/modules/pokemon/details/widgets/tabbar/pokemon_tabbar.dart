@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
-import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonTabBar extends StatelessWidget {
   final PokemonTypeColors typeColors;
@@ -22,7 +21,7 @@ class PokemonTabBar extends StatelessWidget {
           elevation: 0,
           bottom: TabBar(
             labelColor: Colors.black,
-            indicatorColor: getColorFromHex('${typeColors.defaultColor}'),
+            indicatorColor: typeColors.defaultColor,
             labelStyle: GoogleFonts.montserrat(fontWeight: FontWeight.w800),
             unselectedLabelStyle:
                 GoogleFonts.montserrat(fontWeight: FontWeight.w400),

@@ -6,7 +6,6 @@ import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_avatar.da
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_name.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_type.dart';
 import 'package:pokedex_4fun/pages/pokemon/details.dart';
-import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 Widget buildPokemonCard(BuildContext context, List<PokemonInfo>? pokemons) {
   if (pokemons != null) {
@@ -41,8 +40,7 @@ class PokemonCard extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
       child: Card(
         elevation: 0,
-        color: getColorFromHex('${primaryPokemonTypeColors.defaultColor}')
-            .withOpacity(0.8),
+        color: primaryPokemonTypeColors.defaultColor.withOpacity(0.8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
@@ -59,8 +57,7 @@ class PokemonCard extends StatelessWidget {
               ),
             );
           },
-          splashColor:
-              getColorFromHex('${primaryPokemonTypeColors.lightColor}'),
+          splashColor: primaryPokemonTypeColors.lightColor,
           child: Stack(
             alignment: Alignment.center,
             clipBehavior: Clip.none,

@@ -7,7 +7,6 @@ import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/poke
 import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/pokemon_tabbar.dart';
 import 'package:pokedex_4fun/pages/widgets/custom_appbar.dart';
 import 'package:pokedex_4fun/pages/widgets/pokemon_avatar.dart';
-import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonDetailsPage extends StatelessWidget {
   final PokemonInfo pokemon;
@@ -26,7 +25,7 @@ class PokemonDetailsPage extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: CustomAppBar(
-          backgroundColor: getColorFromHex('${typeColors.defaultColor}'),
+          backgroundColor: typeColors.defaultColor,
           opacity: 0.1,
           iconColor: Colors.white,
         ),
@@ -36,8 +35,7 @@ class PokemonDetailsPage extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Container(
-                  color: getColorFromHex('${typeColors.defaultColor}')
-                      .withOpacity(0.8),
+                  color: typeColors.defaultColor.withOpacity(0.8),
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                 ),

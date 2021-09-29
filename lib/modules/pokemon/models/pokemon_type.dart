@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:pokedex_4fun/config/constants/types_colors.dart';
+import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonType {
   int slot;
@@ -39,9 +41,9 @@ class PokemonTypeProperties {
 }
 
 class PokemonTypeColors {
-  String defaultColor;
-  String lightColor;
-  String darkColor;
+  Color defaultColor;
+  Color lightColor;
+  Color darkColor;
 
   PokemonTypeColors({
     required this.defaultColor,
@@ -51,9 +53,9 @@ class PokemonTypeColors {
 
   factory PokemonTypeColors.fromJson(Map<String, String> item) {
     return PokemonTypeColors(
-      defaultColor: item['defaultColor'] ?? '',
-      lightColor: item['lightColor'] ?? '',
-      darkColor: item['darkColor'] ?? '',
+      defaultColor: getColorFromHex(item['defaultColor']),
+      lightColor: getColorFromHex(item['lightColor']),
+      darkColor: getColorFromHex(item['lightColor']),
     );
   }
 }
