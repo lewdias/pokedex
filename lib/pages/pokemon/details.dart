@@ -45,7 +45,7 @@ class PokemonDetailsPage extends StatelessWidget {
                 PokemonAvatar(
                   sprite: pokemon.sprites.other?.officialArtwork.frontDefault,
                 ),
-                PokemonTabbarContent(),
+                PokemonTabbarContent(pokemon: pokemon),
               ],
             ),
           ),

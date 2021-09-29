@@ -70,6 +70,7 @@ class PokemonListRepository {
               'id': pokemonInfo['id'],
               'types': pokemonInfo['types'],
               'sprites': pokemonInfo['sprites'],
+              'stats': pokemonInfo['stats'],
               'name': pokemonInfo['name'],
             },
             'statusCode': 200,
