@@ -5,10 +5,16 @@ import 'package:pokedex_4fun/utils/hexcolor.dart';
 
 class PokemonCardType extends StatelessWidget {
   final PokemonType pokemonType;
+  final Color? color;
+  final Color? borderColor;
   final int index;
 
   const PokemonCardType(
-      {Key? key, required this.pokemonType, required this.index})
+      {Key? key,
+      required this.pokemonType,
+      this.color,
+      this.borderColor,
+      required this.index})
       : super(key: key);
 
   @override
@@ -19,10 +25,11 @@ class PokemonCardType extends StatelessWidget {
       width: 75,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: getColorFromHex('${pokemonType.type.colors.defaultColor}'),
+        color:
+            color ?? getColorFromHex('${pokemonType.type.colors.defaultColor}'),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: Colors.white,
+          color: borderColor ?? Colors.transparent,
           width: 1,
         ),
       ),

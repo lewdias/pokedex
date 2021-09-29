@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
-import 'package:pokedex_4fun/utils/hexcolor.dart';
-import 'package:pokedex_4fun/utils/outlinedText.dart';
 
 class PokemonCardName extends StatelessWidget {
   final String pokemonName;
@@ -39,10 +37,6 @@ class PokemonCardName extends StatelessWidget {
               color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w800,
-              shadows: outlinedText(
-                strokeColor:
-                    getColorFromHex(primaryPokemonTypeColors.defaultColor),
-              ),
               letterSpacing: 0.8,
             ),
           ),

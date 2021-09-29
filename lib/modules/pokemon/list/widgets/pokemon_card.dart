@@ -40,7 +40,9 @@ class PokemonCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
       child: Card(
-        color: getColorFromHex('${primaryPokemonTypeColors.lightColor}'),
+        elevation: 0,
+        color: getColorFromHex('${primaryPokemonTypeColors.defaultColor}')
+            .withOpacity(0.8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
@@ -58,7 +60,7 @@ class PokemonCard extends StatelessWidget {
             );
           },
           splashColor:
-              getColorFromHex('${primaryPokemonTypeColors.defaultColor}'),
+              getColorFromHex('${primaryPokemonTypeColors.lightColor}'),
           child: Stack(
             alignment: Alignment.center,
             clipBehavior: Clip.none,
