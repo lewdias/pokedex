@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_stats.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/stats/pokemon_stats_graph.dart';
 
 class PokemonBaseStats extends StatelessWidget {
   final List<PokemonStats> stats;
@@ -7,16 +8,10 @@ class PokemonBaseStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        height: 500,
-        color: Colors.white,
-        child: Center(
-          child: Text(
-            '<(v_ v<)',
-          ),
-        ),
-      ),
+    return Container(
+      height: 600,
+      color: Colors.white,
+      child: PokemonStatsGraph(stats: stats),
     );
   }
 }

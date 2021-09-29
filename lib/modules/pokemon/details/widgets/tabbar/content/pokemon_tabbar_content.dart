@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
-import 'package:pokedex_4fun/modules/pokemon/show/widgets/tabbar/content/pokemon_base_stats.dart';
-import 'package:pokedex_4fun/modules/pokemon/show/widgets/tabbar/content/pokemon_evolutions.dart';
-import 'package:pokedex_4fun/modules/pokemon/show/widgets/tabbar/content/pokemon_moves.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/stats/pokemon_base_stats.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/pokemon_evolutions.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/pokemon_moves.dart';
 
 class PokemonTabbarContent extends StatelessWidget {
   final PokemonInfo pokemon;
