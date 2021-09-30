@@ -8,10 +8,12 @@ class PokemonBaseStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 600,
-      color: Colors.white,
-      child: PokemonStatsGraph(stats: stats),
+    return SingleChildScrollView(
+      child: Container(
+        height: 420,
+        color: Colors.white,
+        child: PokemonStatsGraph(stats: stats),
+      ),
     );
   }
 }

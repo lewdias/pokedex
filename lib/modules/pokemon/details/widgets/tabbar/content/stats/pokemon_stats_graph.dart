@@ -14,19 +14,19 @@ class PokemonStatsGraph extends StatefulWidget {
 class PokemonStatsGraphState extends State<PokemonStatsGraph> {
   final Color leftBarColor = const Color(0xff53fdd7);
   final double width = 10;
+  double highestStat = 0.0;
 
   late List<BarChartGroupData> showingBarGroups;
 
   @override
   void initState() {
     super.initState();
-    final statBars = widget.stats
-        .mapIndexed((int index, PokemonStats item) => makeGroupData(
-              index,
-              item.baseStat.toDouble(),
-              item.stat.color,
-            ))
-        .toList();
+    final statBars = widget.stats.mapIndexed((int index, PokemonStats item) {
+      if (item.baseStat.toDouble() > highestStat) {
+        highestStat = item.baseStat.toDouble();
+      }
+      return makeGroupData(index, item.baseStat.toDouble(), item.stat.color);
+    }).toList();
 
     showingBarGroups = statBars;
   }
@@ -44,7 +44,7 @@ class PokemonStatsGraphState extends State<PokemonStatsGraph> {
               Expanded(
                 child: BarChart(
                   BarChartData(
-                    maxY: 300,
+                    maxY: highestStat * 1.3,
                     titlesData: FlTitlesData(
                       show: true,
                       rightTitles: SideTitles(showTitles: false),
@@ -88,16 +88,18 @@ class PokemonStatsGraphState extends State<PokemonStatsGraph> {
                         getTitles: (value) {
                           if (value == 0) {
                             return '0';
-                          } else if (value == 50) {
-                            return '50';
-                          } else if (value == 100) {
-                            return '100';
-                          } else if (value == 150) {
-                            return '150';
+                          } else if (value == 40) {
+                            return '40';
+                          } else if (value == 80) {
+                            return '80';
+                          } else if (value == 120) {
+                            return '120';
+                          } else if (value == 160) {
+                            return '160';
                           } else if (value == 200) {
                             return '200';
-                          } else if (value == 255) {
-                            return '255';
+                          } else if (value == 240) {
+                            return '240';
                           } else {
                             return '';
                           }
