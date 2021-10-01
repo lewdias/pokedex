@@ -27,7 +27,10 @@ class PokemonTabBar extends StatelessWidget {
                 GoogleFonts.montserrat(fontWeight: FontWeight.w400),
             tabs: [
               Tab(
-                text: 'Base Stats',
+                text: 'Stats',
+              ),
+              Tab(
+                text: 'Abilities',
               ),
               Tab(
                 text: 'Evolution',
