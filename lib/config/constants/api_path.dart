@@ -1,7 +1,7 @@
 import 'package:pokedex_4fun/config/constants/api_constants.dart' as constants;
 
 class APIPath {
-  static String getOficialArtwork(String id) =>
+  static String getOfficialArtwork(String id) =>
       '${constants.SPRITES_URL}/other/official-artwork/$id.png';
 
   static String getPokemons(int limit, int offset) =>

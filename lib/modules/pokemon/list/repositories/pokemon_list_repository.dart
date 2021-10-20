@@ -70,6 +70,7 @@ class PokemonListRepository {
               'id': pokemonInfo['id'],
               'types': pokemonInfo['types'],
               'sprites': pokemonInfo['sprites'],
+              'abilities': pokemonInfo['abilities'],
               'stats': pokemonInfo['stats'],
               'name': pokemonInfo['name'],
             },
