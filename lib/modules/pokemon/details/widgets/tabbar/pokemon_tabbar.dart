@@ -9,8 +9,10 @@ class PokemonTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Positioned(
-      top: 335,
+      top: screenHeight * 0.42,
       child: Container(
         height: 50,
         width: MediaQuery.of(context).size.width,
@@ -22,7 +24,8 @@ class PokemonTabBar extends StatelessWidget {
           bottom: TabBar(
             labelColor: Colors.black,
             indicatorColor: typeColors.defaultColor,
-            labelStyle: GoogleFonts.montserrat(fontWeight: FontWeight.w800),
+            labelStyle: GoogleFonts.montserrat(
+                fontWeight: FontWeight.w800, fontSize: 13),
             unselectedLabelStyle:
                 GoogleFonts.montserrat(fontWeight: FontWeight.w400),
             tabs: [

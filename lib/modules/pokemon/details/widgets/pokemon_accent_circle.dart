@@ -9,8 +9,10 @@ class PokemonAccentCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Positioned(
-      top: 200,
+      top: screenHeight * 0.3,
       child: SizedBox(
         width: 170,
         height: 170,

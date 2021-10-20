@@ -33,9 +33,11 @@ class PokemonBaseStatsState extends State<PokemonBaseStats> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return SingleChildScrollView(
       child: Container(
-        height: 417,
+        height: screenHeight * 0.52,
         color: Colors.white,
         child: AspectRatio(
           aspectRatio: 1,

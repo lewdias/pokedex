@@ -11,9 +11,12 @@ class PokemonHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Positioned(
-      top: 85,
-      width: MediaQuery.of(context).size.width,
+      top: screenHeight * 0.12,
+      width: screenWidth,
       child: Column(
         children: [
           Container(
