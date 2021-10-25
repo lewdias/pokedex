@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/content_height.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_stats.dart';
 
 class PokemonBaseStats extends StatefulWidget {
@@ -37,7 +38,7 @@ class PokemonBaseStatsState extends State<PokemonBaseStats> {
 
     return SingleChildScrollView(
       child: Container(
-        height: screenHeight * 0.52,
+        height: screenHeight * contentHeight,
         color: Colors.white,
         child: AspectRatio(
           aspectRatio: 1,
