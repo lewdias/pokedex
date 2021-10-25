@@ -4,14 +4,15 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<Map<dynamic, dynamic>> getFromCacheOrApi(
-    String url, String cacheKey, SharedPreferences sharedPreferences) async {
+    String url, String cacheKey, SharedPreferences sharedPreferences,
+    {bool getFromCache = true}) async {
   Dio dio = new Dio();
 
   var response;
 
   String cachedResponse = sharedPreferences.getString(cacheKey) ?? '';
 
-  if (cachedResponse != '') {
+  if (cachedResponse != '' && getFromCache == true) {
     response = jsonDecode(cachedResponse);
   } else {
     response = await dio.get(url);

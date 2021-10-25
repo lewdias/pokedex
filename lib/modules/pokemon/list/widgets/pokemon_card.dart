@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/repositories/pokemon_ability_repository.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_avatar.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_name.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_type.dart';
 import 'package:pokedex_4fun/pages/pokemon/details.dart';
+import 'package:provider/provider.dart';
 
 Widget buildPokemonCard(BuildContext context, List<PokemonInfo>? pokemons) {
   if (pokemons != null) {
@@ -52,8 +54,13 @@ class PokemonCard extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => PokemonDetailsPage(
-                    pokemon: pokemon, typeColors: primaryPokemonTypeColors),
+                builder: (context) => MultiProvider(
+                  providers: [
+                    Provider(create: (_) => PokemonAbilityRepository()),
+                  ],
+                  child: PokemonDetailsPage(
+                      pokemon: pokemon, typeColors: primaryPokemonTypeColors),
+                ),
               ),
             );
           },

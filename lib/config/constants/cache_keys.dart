@@ -4,4 +4,6 @@ class CacheKeys {
 
   static String pokemonInformation(String pokemonName) =>
       'pokemon-info-$pokemonName';
+
+  static String pokemonAbility(String url) => 'pokemon-ability-$url';
 }
