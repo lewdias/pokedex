@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:pokedex_4fun/config/constants/cache_keys.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/config/constants/api_path.dart';
-import 'package:pokedex_4fun/utils/getFromCacheOrApi.dart';
+import 'package:pokedex_4fun/config/api/getFromCacheOrApi.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PokemonListRepository {
@@ -56,8 +56,11 @@ class PokemonListRepository {
         results.map<Future<PokemonInfo>>((dynamic item) async {
       String pokemonUrl = item['url'];
 
-      Map<dynamic, dynamic> responseMapped = await getFromCacheOrApi(pokemonUrl,
-          CacheKeys.pokemonInformation(item['name']), sharedPreferences);
+      Map<dynamic, dynamic> responseMapped = await getFromCacheOrApi(
+        pokemonUrl,
+        CacheKeys.pokemonInformation(item['name']),
+        sharedPreferences,
+      );
 
       int statusCode = responseMapped['statusCode'];
       final pokemonInfo = responseMapped['data'];
@@ -71,6 +74,7 @@ class PokemonListRepository {
               'types': pokemonInfo['types'],
               'sprites': pokemonInfo['sprites'],
               'abilities': pokemonInfo['abilities'],
+              'moves': pokemonInfo['moves'],
               'stats': pokemonInfo['stats'],
               'name': pokemonInfo['name'],
             },

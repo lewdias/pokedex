@@ -1,4 +1,4 @@
-import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info_abilities.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/models/pokemon_load_data.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_sprites.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_stats.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
@@ -9,7 +9,7 @@ class PokemonInfo {
   String name;
   PokemonSprites sprites;
   List<PokemonType> types;
-  List<PokemonInfoAbilities> abilities;
+  List<PokemonLoadData> abilities;
   List<PokemonStats> stats;
 
   PokemonInfo({
@@ -27,8 +27,8 @@ class PokemonInfo {
       name: capitalize(json['name']),
       sprites: PokemonSprites.fromJson(json['sprites']),
       abilities: json['abilities']
-          .map<PokemonInfoAbilities>((dynamic ability) =>
-              PokemonInfoAbilities.fromJson(ability['ability']))
+          .map<PokemonLoadData>(
+              (dynamic ability) => PokemonLoadData.fromJson(ability['ability']))
           .toList(),
       types: json['types']
           .map<PokemonType>((dynamic type) => PokemonType.fromJson(type))

@@ -1,17 +1,17 @@
 import 'package:pokedex_4fun/utils/humanize.dart';
 
-class PokemonInfoAbilities {
+class PokemonLoadData {
   String name;
   String url;
   bool? isExpanded;
 
-  PokemonInfoAbilities({
+  PokemonLoadData({
     required this.name,
     required this.url,
   });
 
-  factory PokemonInfoAbilities.fromJson(Map<String, dynamic> json) {
-    return PokemonInfoAbilities(
+  factory PokemonLoadData.fromJson(Map<String, dynamic> json) {
+    return PokemonLoadData(
       name: humanize(json['name']),
       url: json['url'],
     );
