@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
+import 'package:pokedex_4fun/pages/widgets/fonts/primary_font.dart';
 
 class PokemonCardName extends StatelessWidget {
   final String pokemonName;
@@ -19,26 +19,13 @@ class PokemonCardName extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-          child: Text(
-            'N°$pokemonId',
-            style: GoogleFonts.montserrat(
-              color: Colors.white,
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        ),
+            margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: PrimaryFont(text: 'N°$pokemonId', color: Colors.white)),
         Container(
           margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-          child: Text(
-            pokemonName,
-            style: GoogleFonts.montserrat(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w800,
-              letterSpacing: 0.8,
-            ),
+          child: PrimaryFont(
+            text: pokemonName,
+            color: Colors.white,
           ),
         ),
       ],

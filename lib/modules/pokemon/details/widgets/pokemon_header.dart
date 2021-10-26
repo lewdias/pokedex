@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_type.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
+import 'package:pokedex_4fun/pages/widgets/fonts/primary_font.dart';
 
 class PokemonHeader extends StatelessWidget {
   final PokemonInfo pokemon;
@@ -25,23 +25,19 @@ class PokemonHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  '${pokemon.name}',
-                  style: GoogleFonts.montserrat(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.w800,
-                  ),
+                PrimaryFont(
+                  text: '${pokemon.name}',
+                  color: Colors.white,
+                  size: 40,
+                  fontWeight: FontWeight.w800,
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 10),
-                  child: Text(
-                    '#${pokemon.id}',
-                    style: GoogleFonts.montserrat(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                    ),
+                  child: PrimaryFont(
+                    text: '#${pokemon.id}',
+                    color: Colors.white,
+                    size: 18,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ],

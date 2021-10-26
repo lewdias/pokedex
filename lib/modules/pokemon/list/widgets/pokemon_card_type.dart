@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
+import 'package:pokedex_4fun/pages/widgets/fonts/primary_font.dart';
 
 class PokemonCardType extends StatelessWidget {
   final PokemonType pokemonType;
@@ -31,13 +31,10 @@ class PokemonCardType extends StatelessWidget {
           width: 1,
         ),
       ),
-      child: Text(
-        '${pokemonType.type.name}'.toUpperCase(),
-        style: GoogleFonts.montserrat(
-          fontSize: 12,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
+      child: PrimaryFont(
+        text: '${pokemonType.type.name}'.toUpperCase(),
+        color: Colors.white,
+        size: 12,
       ),
     );
   }

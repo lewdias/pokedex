@@ -22,8 +22,12 @@ class PokemonTabBar extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0,
           bottom: TabBar(
-            labelColor: Colors.black,
-            indicatorColor: typeColors.defaultColor,
+            labelColor: typeColors.defaultColor,
+            indicator: UnderlineTabIndicator(
+              borderSide:
+                  BorderSide(width: 5.0, color: typeColors.defaultColor),
+              insets: EdgeInsets.symmetric(horizontal: 0),
+            ),
             labelStyle: GoogleFonts.montserrat(
                 fontWeight: FontWeight.w800, fontSize: 13),
             unselectedLabelStyle:

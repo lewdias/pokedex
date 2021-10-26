@@ -55,7 +55,7 @@ class PokemonTypeColors {
     return PokemonTypeColors(
       defaultColor: getColorFromHex(item['defaultColor']),
       lightColor: getColorFromHex(item['lightColor']),
-      darkColor: getColorFromHex(item['lightColor']),
+      darkColor: getColorFromHex(item['darkColor']),
     );
   }
 }

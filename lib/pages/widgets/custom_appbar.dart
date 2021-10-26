@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:pokedex_4fun/pages/widgets/fonts/primary_font.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -26,14 +26,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        title?.toUpperCase() ?? '',
-        style: GoogleFonts.montserrat(
-          color: Colors.black,
-          fontSize: 18,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 1,
-        ),
+      title: PrimaryFont(
+        text: title?.toUpperCase() ?? '',
+        color: Colors.black,
+        size: 18,
+        fontWeight: FontWeight.w800,
       ),
       elevation: 0,
       backgroundColor: backgroundColor?.withOpacity(opacity ?? 0.8) ??
