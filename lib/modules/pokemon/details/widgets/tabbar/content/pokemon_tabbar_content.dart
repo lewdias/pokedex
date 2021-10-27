@@ -5,7 +5,7 @@ import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/cont
 import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/pokemon_abilities_tab.dart';
 import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/pokemon_base_stats.dart';
 import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/pokemon_evolutions.dart';
-import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/pokemon_moves.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/widgets/tabbar/content/pokemon_moves_tab.dart';
 
 class PokemonTabbarContent extends StatelessWidget {
   final PokemonInfo pokemon;
@@ -29,7 +29,7 @@ class PokemonTabbarContent extends StatelessWidget {
             PokemonAbilitiesTab(
                 abilities: pokemon.abilities, typeColors: typeColors),
             PokemonEvolutions(),
-            PokemonMoves(),
+            PokemonMovesTab(moves: pokemon.moves, typeColors: typeColors),
           ],
         ),
       ),

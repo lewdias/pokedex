@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:pokedex_4fun/modules/pokemon/details/repositories/pokemon_ability_repository.dart';
+import 'package:pokedex_4fun/modules/pokemon/details/repositories/pokemon_moves_repository.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_info.dart';
 import 'package:pokedex_4fun/modules/pokemon/models/pokemon_type.dart';
 import 'package:pokedex_4fun/modules/pokemon/list/widgets/pokemon_card_avatar.dart';
@@ -57,6 +58,7 @@ class PokemonCard extends StatelessWidget {
                 builder: (context) => MultiProvider(
                   providers: [
                     Provider(create: (_) => PokemonAbilityRepository()),
+                    Provider(create: (_) => PokemonMovesRepository()),
                   ],
                   child: PokemonDetailsPage(
                       pokemon: pokemon, typeColors: primaryPokemonTypeColors),

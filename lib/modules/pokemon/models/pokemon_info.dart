@@ -10,6 +10,7 @@ class PokemonInfo {
   PokemonSprites sprites;
   List<PokemonType> types;
   List<PokemonLoadData> abilities;
+  List<PokemonLoadData> moves;
   List<PokemonStats> stats;
 
   PokemonInfo({
@@ -18,6 +19,7 @@ class PokemonInfo {
     required this.types,
     required this.sprites,
     required this.abilities,
+    required this.moves,
     required this.stats,
   });
 
@@ -29,6 +31,10 @@ class PokemonInfo {
       abilities: json['abilities']
           .map<PokemonLoadData>(
               (dynamic ability) => PokemonLoadData.fromJson(ability['ability']))
+          .toList(),
+      moves: json['moves']
+          .map<PokemonLoadData>(
+              (dynamic move) => PokemonLoadData.fromJson(move['move']))
           .toList(),
       types: json['types']
           .map<PokemonType>((dynamic type) => PokemonType.fromJson(type))
