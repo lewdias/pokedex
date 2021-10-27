@@ -12,9 +12,10 @@ class PokemonListRepository {
           await SharedPreferences.getInstance();
 
       Map<dynamic, dynamic> responseMapped = await getFromCacheOrApi(
-          APIPath.getPokemons(limit, offset),
-          CacheKeys.pokemonList(limit, offset),
-          sharedPreferences);
+        APIPath.getPokemons(limit, offset),
+        CacheKeys.pokemonList(limit, offset),
+        sharedPreferences,
+      );
 
       int statusCode = responseMapped['statusCode'];
       final data = responseMapped['data'];
