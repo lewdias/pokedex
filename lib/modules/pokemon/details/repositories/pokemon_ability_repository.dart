@@ -23,6 +23,7 @@ class PokemonAbilityRepository {
           Map<String, dynamic> responseMap = {
             'data': {
               'id': data['id'],
+              'name': data['name'],
               'effect_entries': data['effect_entries'],
               'flavor_text_entries': data['flavor_text_entries'],
             },

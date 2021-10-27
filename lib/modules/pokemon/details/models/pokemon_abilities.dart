@@ -1,15 +1,16 @@
 import 'package:pokedex_4fun/modules/pokemon/details/models/effect_entries.dart';
 import 'package:pokedex_4fun/modules/pokemon/details/models/flavor_text.dart';
+import 'package:pokedex_4fun/utils/humanize.dart';
 
 class PokemonAbilities {
   int id;
-  List<PokemonAbilityNames> names;
+  String name;
   List<EffectEntries> effects;
   List<FlavorText> flavorText;
 
   PokemonAbilities({
     required this.id,
-    required this.names,
+    required this.name,
     required this.effects,
     required this.flavorText,
   });
@@ -17,10 +18,7 @@ class PokemonAbilities {
   factory PokemonAbilities.fromJson(Map<String, dynamic> json) {
     return PokemonAbilities(
       id: json['id'],
-      names: json['names']
-          .map<PokemonAbilityNames>(
-              (dynamic name) => PokemonAbilityNames.fromJson(name))
-          .toList(),
+      name: humanize(json['name']),
       effects: json['effect_entries']
           .map<EffectEntries>(
               (dynamic effectEntry) => EffectEntries.fromJson(effectEntry))
@@ -29,23 +27,6 @@ class PokemonAbilities {
           .map<FlavorText>(
               (dynamic flavorTextEntry) => FlavorText.fromJson(flavorTextEntry))
           .toList(),
-    );
-  }
-}
-
-class PokemonAbilityNames {
-  String name;
-  String language;
-
-  PokemonAbilityNames({
-    required this.name,
-    required this.language,
-  });
-
-  factory PokemonAbilityNames.fromJson(Map<String, dynamic> json) {
-    return PokemonAbilityNames(
-      name: json['name'],
-      language: json['language']['name'],
     );
   }
 }
